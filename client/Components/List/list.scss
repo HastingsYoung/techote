@@ -1,0 +1,43 @@
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  p {
+
+  }
+}
+
+.list-items {
+  display: flex;
+  flex-flow: column;
+}
+
+.simple-list-btns {
+  display: flex;
+  position: relative;
+  .simple-list-btn {
+    margin: 0 5px;
+    position: relative;
+    margin: 0 5px;
+    border: 1px solid #E6E6E6;
+    background-color: lighten(#2D2D2D, 10);
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    &:hover {
+      cursor: pointer;
+      background-color: lighten(#1d1d1d, 10);
+    }
+  }
+}
+
+.simple-list {
+  display: flex;
+  flex-flow: column;
+  margin: 0 3%;
+  background-color: #0a001f;
+  color: #ffffff;
+  padding: 10px 5%;
+  border-radius: 15px;
+  box-shadow: 0 0 10px silver inset;
+}

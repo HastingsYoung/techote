@@ -1,0 +1,26 @@
+.checklist-btns {
+  display: flex;
+  position: relative;
+  .checklist-btn {
+    position: relative;
+    margin: 0 5px;
+    background-color: #2D2D2D;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    &:hover {
+      cursor: pointer;
+      background-color: #1d1d1d;
+    }
+  }
+}
+
+.checklist {
+  display: flex;
+  flex-flow: column;
+  .checklist-lists {
+    display: flex;
+    flex-flow: row;
+    margin: 10px 0;
+  }
+}
