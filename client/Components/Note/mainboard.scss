@@ -1,0 +1,64 @@
+@mixin trans($time:0.3s) {
+  -webkit-transition: all $time;
+  -moz-transition: all $time;
+  -ms-transition: all $time;
+  -o-transition: all $time;
+  transition: all $time;
+}
+.main-board {
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  .main-board-btns {
+    display: flex;
+    flex-flow: row;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 15% 10%;
+    background-color: rgb(68, 68, 68);
+    .main-board-btn {
+      display: flex;
+      flex-flow: row;
+      align-items: center;
+      justify-content: center;
+      padding: 5px 10%;
+      color: rgb(187, 187, 187);
+      @include trans();
+      cursor: pointer;
+      &:hover{
+        color: #ffffff;
+        @include trans();
+      }
+    }
+  }
+  .note {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    .cue-column {
+      display: flex;
+      flex: 1;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .note-content {
+      display: flex;
+      flex: 2;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .summary {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
