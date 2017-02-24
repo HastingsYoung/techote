@@ -44,7 +44,7 @@ export default class List extends Component {
     renderItems() {
         let items = [];
         for (let k in this.state.checked) {
-            let item = (<div className="list-item" key={k}>
+            let item = (<div className={this.state.checked[k]?"list-item checked":"list-item"} key={k}>
                 <input type="checkbox" checked={this.state.checked[k]}
                        onClick={this.checkedItem.bind(this,k)}/>
                 <p>{this.state.text[k]}</p>
@@ -56,6 +56,7 @@ export default class List extends Component {
 
     render() {
         return <div className="simple-list">
+            <div className="list-title">{this.props.title}</div>
             <div className="simple-list-btns">
                 <div className="simple-list-btn simple-list-btn-add" onClick={(evt)=>{
                     this.addItem("New Task");

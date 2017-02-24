@@ -14,7 +14,7 @@ export default class CheckList extends Component {
 
     addList() {
         let lists = this.state.lists;
-        lists.push(<List key={this.count}></List>);
+        lists.push(<List key={this.count} title={"List Title"}></List>);
         this.count++;
         this.setState({lists: lists});
     }

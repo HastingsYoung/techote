@@ -14,10 +14,14 @@
 
 .checklist {
   display: flex;
-  flex-flow: column; }
+  flex: 1;
+  width: 100%;
+  flex-flow: column;
+  padding: 10px 5px;
+  background-color: #767676; }
   .checklist .checklist-lists {
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
     margin: 10px 0; }
 
 /*# sourceMappingURL=checklist.css.map */

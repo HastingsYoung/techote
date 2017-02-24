@@ -1,10 +1,39 @@
 import React,{Component} from 'react';
 import CheckList from '../CheckList/CheckList.jsx';
+import Page from './Page.jsx';
 import './mainboard.css';
 
 export default class MainBoard extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            pages: [
+                {
+                    cueColumn: ["Cue"],
+                    noteContent: [],
+                    summary: ["Summary"]
+                }
+            ]
+        }
+    }
+
+    renderPages() {
+        let pages = [];
+        this.state.pages.forEach((page, index)=> {
+            pages.push(<Page key={index} cueColumn={page.cueColumn} noteContent={page.noteContent}
+                             summary={page.summary}></Page>)
+        });
+        return pages;
+    }
+
+    addList(i) {
+        let pages = this.state.pages;
+        let content = pages[i].noteContent;
+        content.push(<CheckList key={pages[i].noteContent.length}></CheckList>);
+        pages[i].noteContent = content;
+        this.setState({
+            pages: pages
+        });
     }
 
     render() {
@@ -13,7 +42,7 @@ export default class MainBoard extends Component {
                 <div className="main-board-btn" onClick={this.props.switchView}>
                     <i className="material-icons">assignment</i>
                 </div>
-                <div className="main-board-btn">
+                <div className="main-board-btn" onClick={this.addList.bind(this,0)}>
                     <i className="material-icons">assignment</i>
                 </div>
                 <div className="main-board-btn">
@@ -32,18 +61,7 @@ export default class MainBoard extends Component {
                     <i className="material-icons">assignment</i>
                 </div>
             </div>
-            <div className="note">
-                <div className="cue-column">
-                    CUE CUE CUE
-                </div>
-                <div className="note-content">
-                    {/*<CheckList></CheckList>*/}
-                    NOTE NOTE
-                </div>
-            </div>
-            <div className="summary">
-                SUMMARY SUMMARY SUMMARY
-            </div>
+            {this.renderPages()}
         </div>);
     }
 }
