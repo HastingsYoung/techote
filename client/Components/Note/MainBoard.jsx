@@ -13,6 +13,24 @@ export default class MainBoard extends Component {
                 <div className="main-board-btn" onClick={this.props.switchView}>
                     <i className="material-icons">assignment</i>
                 </div>
+                <div className="main-board-btn">
+                    <i className="material-icons">assignment</i>
+                </div>
+                <div className="main-board-btn">
+                    <i className="material-icons">assignment</i>
+                </div>
+                <div className="main-board-btn">
+                    <i className="material-icons">assignment</i>
+                </div>
+                <div className="main-board-btn">
+                    <i className="material-icons">assignment</i>
+                </div>
+                <div className="main-board-btn">
+                    <i className="material-icons">assignment</i>
+                </div>
+                <div className="main-board-btn">
+                    <i className="material-icons">assignment</i>
+                </div>
             </div>
             <div className="note">
                 <div className="cue-column">
