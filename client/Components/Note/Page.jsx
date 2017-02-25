@@ -6,33 +6,27 @@ export default class Page extends Component {
         super(props);
     }
 
-    onCueChange(txt) {
-        let content = this.props.cueColumn;
-        content[0] = txt;
+    onCueChange(node) {
         this.props.onPageChange(this.props.index, {
-            cueColumn: content,
+            cueColumn: node.innerHTML,
             noteContent: this.props.noteContent,
             summary: this.props.summary
         });
     }
 
-    onNoteChange(txt) {
-        let content = this.props.noteContent;
-        content[0] = txt;
+    onNoteChange(node) {
         this.props.onPageChange(this.props.index, {
             cueColumn: this.props.cueColumn,
-            noteContent: content,
+            noteContent: node.innerHTML,
             summary: this.props.summary
         });
     }
 
-    onSummaryChange(txt) {
-        let content = this.props.cueColumn;
-        content[0] = txt;
+    onSummaryChange(node) {
         this.props.onPageChange(this.props.index, {
-            cueColumn: content,
+            cueColumn: this.props.cueColumn,
             noteContent: this.props.noteContent,
-            summary: txt
+            summary: node.innerHTML
         });
     }
 
@@ -44,16 +38,14 @@ export default class Page extends Component {
                         <div className="cue-title">
                             Cue Column
                         </div>
-                        <ContentEditable className="cue-text" onChange={this.onCueChange.bind(this)}>
-                            {this.props.cueColumn}
+                        <ContentEditable className="cue-text" onChange={this.onCueChange.bind(this)} html={this.props.cueColumn}>
                         </ContentEditable>
                     </div>
                     <div className="note-content">
                         <div className="note-title">
                             Note Taking Column
                         </div>
-                        <ContentEditable className="note-text" onChange={this.onNoteChange.bind(this)}>
-                            {this.props.noteContent}
+                        <ContentEditable className="note-text" onChange={this.onNoteChange.bind(this)} html={this.props.noteContent}>
                         </ContentEditable>
                     </div>
                 </div>
@@ -61,8 +53,7 @@ export default class Page extends Component {
                     <div className="summary-title">
                         Summary
                     </div>
-                    <ContentEditable className="summary-text" onChange={this.onSummaryChange.bind(this)}>
-                        {this.props.summary}
+                    <ContentEditable className="summary-text" onChange={this.onSummaryChange.bind(this)} html={this.props.summary}>
                     </ContentEditable>
                 </div>
             </div>)

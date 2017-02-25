@@ -10,9 +10,12 @@ export default class MarkdownView extends Component {
     renderPages() {
         let text = "";
         this.props.pages.forEach((p, i)=> {
-            p.noteContent.forEach((c, k)=> {
-                text += c;
-            });
+            if(typeof p.noteContent == 'string'){
+                text += p.noteContent;
+                return;
+            }
+            var txt = p.noteContent.innerHTML.toString().replace(/<\/?.+?>/g, "");
+            text += txt;
         });
         return text;
     }

@@ -9,9 +9,9 @@ export default class App extends Component {
         this.state = {
             pages: [
                 {
-                    cueColumn: ["Cue"],
-                    noteContent: ["Note"],
-                    summary: ["Summary"]
+                    cueColumn: "Cue",
+                    noteContent: "Note",
+                    summary: "Summary"
                 }
             ],
             currentFocus: 0,
@@ -26,9 +26,9 @@ export default class App extends Component {
     addPage() {
         let pages = this.state.pages;
         pages.push({
-            cueColumn: ["Cue"],
-            noteContent: ["Note"],
-            summary: ["Summary"]
+            cueColumn: "Cue",
+            noteContent: "Note",
+            summary: "Summary"
         });
         this.setState(pages);
     }
@@ -36,7 +36,17 @@ export default class App extends Component {
     addList(i) {
         let pages = this.state.pages;
         let content = pages[i].noteContent;
-        content.push(<Text>- List {"\n"}- {"\n"}- </Text>);
+        let d = document.createElement("div");
+        let l1 = document.createElement("div");
+        let l2 = document.createElement("div");
+        let l3 = document.createElement("div");
+        l1.innerHTML = `\n- List`;
+        l2.innerHTML = `\n- List`;
+        l3.innerHTML = `\n- List`;
+        d.appendChild(l1);
+        d.appendChild(l2);
+        d.appendChild(l3);
+        content += d.innerHTML;
         pages[i].noteContent = content;
         this.setState({
             pages: pages

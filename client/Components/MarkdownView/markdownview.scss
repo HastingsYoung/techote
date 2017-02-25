@@ -36,4 +36,12 @@
       }
     }
   }
+  .markdown-view-content{
+    display: flex;
+    flex: 1;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: center;
+    align-self: stretch;
+  }
 }
