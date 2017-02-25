@@ -40,10 +40,10 @@ export default class MainBoard extends Component {
         return (<div className="main-board">
             <div className="main-board-btns">
                 <div className="main-board-btn" onClick={this.props.switchView}>
-                    <i className="material-icons">assignment</i>
+                    <i className="material-icons">chrome_reader_mode</i>
                 </div>
                 <div className="main-board-btn" onClick={this.addList.bind(this,0)}>
-                    <i className="material-icons">assignment</i>
+                    <i className="material-icons">list</i>
                 </div>
                 <div className="main-board-btn">
                     <i className="material-icons">assignment</i>

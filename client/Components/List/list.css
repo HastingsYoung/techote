@@ -28,6 +28,7 @@
       background-color: #373737; }
 
 .simple-list {
+  position: relative;
   display: flex;
   flex-flow: column;
   margin: 0 3%;

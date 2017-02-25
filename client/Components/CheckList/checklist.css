@@ -13,15 +13,20 @@
       background-color: #1d1d1d; }
 
 .checklist {
+  position: relative;
   display: flex;
   flex: 1;
-  width: 100%;
+  width: calc(100% - 10px);
   flex-flow: column;
   padding: 10px 5px;
+  border-right: none;
   background-color: #767676; }
   .checklist .checklist-lists {
     display: flex;
     flex-flow: column;
-    margin: 10px 0; }
+    margin: 10px 0;
+    flex: 1;
+    position: relative;
+    height: 100%; }
 
 /*# sourceMappingURL=checklist.css.map */

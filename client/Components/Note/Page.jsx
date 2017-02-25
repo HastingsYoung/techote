@@ -8,16 +8,31 @@ export default class Page extends Component{
     render(){
         return (
         <div className="note">
-            <div className="note-text">
+            <div className="notebook">
                 <div className="cue-column">
-                    {this.props.cueColumn}
+                    <div className="cue-title">
+                        Cue Column
+                    </div>
+                    <div className="cue-text">
+                        {this.props.cueColumn}
+                    </div>
                 </div>
                 <div className="note-content">
-                    {this.props.noteContent}
+                    <div className="note-title">
+                        Note Taking Column
+                    </div>
+                    <div className="note-text">
+                        {this.props.noteContent}
+                    </div>
                 </div>
             </div>
             <div className="summary">
-                {this.props.summary}
+                <div className="summary-title">
+                    Summary
+                </div>
+                <div className="summary-text">
+                    {this.props.summary}
+                </div>
             </div>
         </div>)
     }
