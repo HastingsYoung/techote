@@ -1,7 +1,4 @@
 import React,{Component} from 'react';
-import { Editor } from 'react-draft-wysiwyg';
-import {EditorState} from 'draft-js';
-import './react-draft-wysiwyg.css';
 import MarkdownView from '../Components/MarkdownView/MarkdownView.jsx';
 import MainBoard from '../Components/Note/MainBoard.jsx';
 import MindMap from '../Components/OutlineView/MindMap.jsx';
@@ -9,12 +6,6 @@ import MindMap from '../Components/OutlineView/MindMap.jsx';
 export default class App extends Component {
     constructor(props) {
         super(props);
-        //this.state = {editorState: EditorState.createEmpty()};
-        //this.onEditorStateChange = (editorState) => {
-        //    this.setState({
-        //        editorState,
-        //    });
-        //}
         this.state = {
             isMarkdownView: false
         }

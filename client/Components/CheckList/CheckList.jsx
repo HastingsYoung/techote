@@ -30,7 +30,7 @@ export default class CheckList extends Component {
     }
 
     render() {
-        return (<div className="checklist">
+        return (<div className="checklist" contentEditable="false">
             <div className="checklist-btns">
                 <div className="checklist-btn checklist-btn-add" onClick={this.addList.bind(this)}>Add</div>
                 <div className="checklist-btn checklist-btn-delete" onClick={this.deleteList.bind(this,this.state.lists.length - 1)}>
