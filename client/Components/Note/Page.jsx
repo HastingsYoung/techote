@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import ContentEditable from './ContentEditable.jsx';
 
 export default class Page extends Component {
     constructor(props) {
@@ -6,20 +7,36 @@ export default class Page extends Component {
     }
 
     onCueChange(txt) {
-
+        let content = this.props.cueColumn;
+        content[0] = txt;
+        this.props.onPageChange(this.props.index, {
+            cueColumn: content,
+            noteContent: this.props.noteContent,
+            summary: this.props.summary
+        });
     }
 
     onNoteChange(txt) {
-
+        let content = this.props.noteContent;
+        content[0] = txt;
+        this.props.onPageChange(this.props.index, {
+            cueColumn: this.props.cueColumn,
+            noteContent: content,
+            summary: this.props.summary
+        });
     }
 
     onSummaryChange(txt) {
-
+        let content = this.props.cueColumn;
+        content[0] = txt;
+        this.props.onPageChange(this.props.index, {
+            cueColumn: content,
+            noteContent: this.props.noteContent,
+            summary: txt
+        });
     }
 
     render() {
-        // todo cue draft.js plain text editor
-        // todo text content draft.js plain text editor
         return (
             <div className="note">
                 <div className="notebook">
@@ -27,32 +44,26 @@ export default class Page extends Component {
                         <div className="cue-title">
                             Cue Column
                         </div>
-                        <div className="cue-text" contentEditable="true" onChange={(evt)=>{
-                            this.onCueChange();
-                        }}>
+                        <ContentEditable className="cue-text" onChange={this.onCueChange.bind(this)}>
                             {this.props.cueColumn}
-                        </div>
+                        </ContentEditable>
                     </div>
                     <div className="note-content">
                         <div className="note-title">
                             Note Taking Column
                         </div>
-                        <div className="note-text" contentEditable="true" onchange={(evt)=>{
-                            this.onNoteChange();
-                        }}>
+                        <ContentEditable className="note-text" onChange={this.onNoteChange.bind(this)}>
                             {this.props.noteContent}
-                        </div>
+                        </ContentEditable>
                     </div>
                 </div>
                 <div className="summary">
                     <div className="summary-title">
                         Summary
                     </div>
-                    <div className="summary-text" contentEditable="true" onChange={(evt)=>{
-                        this.onSummaryChange();
-                    }}>
+                    <ContentEditable className="summary-text" onChange={this.onSummaryChange.bind(this)}>
                         {this.props.summary}
-                    </div>
+                    </ContentEditable>
                 </div>
             </div>)
     }

@@ -7,6 +7,16 @@ export default class MarkdownView extends Component {
         super(props);
     }
 
+    renderPages() {
+        let text = "";
+        this.props.pages.forEach((p, i)=> {
+            p.noteContent.forEach((c, k)=> {
+                text += c;
+            });
+        });
+        return text;
+    }
+
     render() {
         return <div className="markdown-view">
             <div className="markdown-view-btns">
@@ -15,7 +25,7 @@ export default class MarkdownView extends Component {
                 </div>
             </div>
             <div className="markdown-view-content"
-                 dangerouslySetInnerHTML={{__html:marked(this.props.text?this.props.text:"")}}></div>
+                 dangerouslySetInnerHTML={{__html:marked(this.renderPages())}}></div>
         </div>;
     }
 }
