@@ -38,14 +38,27 @@ export default class Page extends Component {
                         <div className="cue-title">
                             Cue Column
                         </div>
-                        <ContentEditable className="cue-text" onChange={this.onCueChange.bind(this)} html={this.props.cueColumn}>
+                        <ContentEditable ref={"cue"} className="cue-text" onChange={this.onCueChange.bind(this)}
+                                         html={this.props.cueColumn}
+                                         onFocus={()=>{
+                                            this.props.onFocus(this.props.index,0,this.props.ances.state.currentFocus.row,this.props.ances.state.currentFocus.char);
+                                         }}
+                                         onBlur={()=>{
+                                            this.props.onBlur(this.props.index,0,this.props.ances.state.currentFocus.row,this.props.ances.state.currentFocus.char);
+                                         }} page={this.props.index} region={0} ances={this.props.ances}>
                         </ContentEditable>
                     </div>
                     <div className="note-content">
                         <div className="note-title">
                             Note Taking Column
                         </div>
-                        <ContentEditable className="note-text" onChange={this.onNoteChange.bind(this)} html={this.props.noteContent}>
+                        <ContentEditable ref={"note"} className="note-text" onChange={this.onNoteChange.bind(this)}
+                                         html={this.props.noteContent} onFocus={()=>{
+                                            this.props.onFocus(this.props.index,1,this.props.ances.state.currentFocus.row,this.props.ances.state.currentFocus.char);
+                                         }}
+                                         onBlur={()=>{
+                                            this.props.onBlur(this.props.index,1,this.props.ances.state.currentFocus.row,this.props.ances.state.currentFocus.char);
+                                         }} page={this.props.index} region={1} ances={this.props.ances}>
                         </ContentEditable>
                     </div>
                 </div>
@@ -53,7 +66,12 @@ export default class Page extends Component {
                     <div className="summary-title">
                         Summary
                     </div>
-                    <ContentEditable className="summary-text" onChange={this.onSummaryChange.bind(this)} html={this.props.summary}>
+                    <ContentEditable ref={"summary"} className="summary-text" onChange={this.onSummaryChange.bind(this)}
+                                     html={this.props.summary} onFocus={()=>{
+                                            this.props.onFocus(this.props.index,2,this.props.ances.state.currentFocus.row,this.props.ances.state.currentFocus.char);
+                                         }} onBlur={()=>{
+                                            this.props.onBlur(this.props.index,2,this.props.ances.state.currentFocus.row,this.props.ances.state.currentFocus.char);
+                                         }} page={this.props.index} region={2} ances={this.props.ances}>
                     </ContentEditable>
                 </div>
             </div>)

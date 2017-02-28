@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import ReactDOM from 'react-dom';
 import MarkdownView from '../Components/MarkdownView/MarkdownView.jsx';
 import MainBoard from '../Components/Note/MainBoard.jsx';
 import MindMap from '../Components/OutlineView/MindMap.jsx';
@@ -14,7 +15,12 @@ export default class App extends Component {
                     summary: "Summary"
                 }
             ],
-            currentFocus: 0,
+            currentFocus: {
+                page: 0,
+                region: 0,
+                row: 0,
+                char: 0
+            },
             isMarkdownView: false
         }
     }
@@ -33,16 +39,16 @@ export default class App extends Component {
         this.setState(pages);
     }
 
-    addList(i) {
+    addUnorderList(i) {
         let pages = this.state.pages;
         let content = pages[i].noteContent;
         let d = document.createElement("div");
         let l1 = document.createElement("div");
         let l2 = document.createElement("div");
         let l3 = document.createElement("div");
-        l1.innerHTML = `\n- List`;
-        l2.innerHTML = `\n- List`;
-        l3.innerHTML = `\n- List`;
+        l1.innerHTML = `\n- `;
+        l2.innerHTML = `\n- `;
+        l3.innerHTML = `\n- `;
         d.appendChild(l1);
         d.appendChild(l2);
         d.appendChild(l3);
@@ -53,8 +59,46 @@ export default class App extends Component {
         });
     }
 
-    onFocus(i) {
-        this.setState({currentFocus: i});
+    addOrderList(i) {
+        let pages = this.state.pages;
+        let content = pages[i].noteContent;
+        let d = document.createElement("div");
+        let l1 = document.createElement("div");
+        let l2 = document.createElement("div");
+        let l3 = document.createElement("div");
+        l1.innerHTML = `\n1. `;
+        l2.innerHTML = `\n2. `;
+        l3.innerHTML = `\n3. `;
+        d.appendChild(l1);
+        d.appendChild(l2);
+        d.appendChild(l3);
+        content += d.innerHTML;
+        pages[i].noteContent = content;
+        this.setState({
+            pages: pages
+        });
+    }
+
+    onFocus(pageIndex, regionIndex, rowIndex, charIndex) {
+        this.setState({
+            currentFocus: {
+                page: pageIndex,
+                region: regionIndex,
+                row: rowIndex,
+                char: charIndex
+            }
+        });
+    }
+
+    onBlur(pageIndex, regionIndex, rowIndex, charIndex) {
+        this.setState({
+            currentFocus: {
+                page: pageIndex,
+                region: regionIndex,
+                row: rowIndex,
+                char: charIndex
+            }
+        });
     }
 
     onPageChange(i, page) {
@@ -71,9 +115,12 @@ export default class App extends Component {
                                                            switchView={this.switchView.bind(this)}></MarkdownView> :
                     <MainBoard switchView={this.switchView.bind(this)}
                                addPage={this.addPage.bind(this)}
-                               addList={this.addList.bind(this,this.state.currentFocus)}
+                               addUnorderList={this.addUnorderList.bind(this,this.state.currentFocus)}
+                               addOrderList={this.addOrderList.bind(this,this.state.currentFocus)}
                                onFocus={this.onFocus.bind(this)} pages={this.state.pages}
-                               onPageChange={this.onPageChange.bind(this)}></MainBoard>}
+                               onPageChange={this.onPageChange.bind(this)}
+                               onBlur={this.onBlur.bind(this)}
+                               ances={this}></MainBoard>}
             </div>
             <div className="right-view"
                  style={{position:"relative",width:"50vw",height:"100vh",overflowX:"hidden",overflowY:"scroll"}}>
