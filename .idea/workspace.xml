@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d37cf63c-daf3-43f6-b313-8f1839d0945d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/App/App.jsx" afterPath="$PROJECT_DIR$/client/App/App.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/Components/MarkdownView/MarkdownView.jsx" afterPath="$PROJECT_DIR$/client/Components/MarkdownView/MarkdownView.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/Components/Note/ContentEditable.jsx" afterPath="$PROJECT_DIR$/client/Components/Note/ContentEditable.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/Components/MarkdownView/markdownview.scss" afterPath="$PROJECT_DIR$/client/Components/MarkdownView/markdownview.scss" />
     </list>
     <ignored path="techote.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContentEditable.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ContentEditable.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/Components/Note/ContentEditable.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7311669">
-              <caret line="34" column="57" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="21" column="46" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -80,7 +79,17 @@
         <entry file="file://$PROJECT_DIR$/client/Components/MarkdownView/MarkdownView.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+              <caret line="13" column="62" selection-start-line="13" selection-start-column="62" selection-end-line="13" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="markdownview.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/Components/MarkdownView/markdownview.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.63246554">
+              <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -110,12 +119,12 @@
         <option value="$PROJECT_DIR$/client/Components/List/list.scss" />
         <option value="$PROJECT_DIR$/client/Components/Note/mainboard.scss" />
         <option value="$PROJECT_DIR$/client/Components/CheckList/CheckList.jsx" />
-        <option value="$PROJECT_DIR$/client/Components/MarkdownView/markdownview.scss" />
         <option value="$PROJECT_DIR$/client/Components/Note/MainBoard.jsx" />
         <option value="$PROJECT_DIR$/client/Components/Note/Page.jsx" />
-        <option value="$PROJECT_DIR$/client/Components/MarkdownView/MarkdownView.jsx" />
         <option value="$PROJECT_DIR$/client/App/App.jsx" />
         <option value="$PROJECT_DIR$/client/Components/Note/ContentEditable.jsx" />
+        <option value="$PROJECT_DIR$/client/Components/MarkdownView/MarkdownView.jsx" />
+        <option value="$PROJECT_DIR$/client/Components/MarkdownView/markdownview.scss" />
       </list>
     </option>
   </component>
@@ -465,7 +474,13 @@
       <option name="project" value="LOCAL" />
       <updated>1488347341719</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fix First Row ContentEditable Bug.">
+      <created>1488348470161</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1488348470161</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -505,7 +520,8 @@
     <MESSAGE value="Synchronize Markdown and Note" />
     <MESSAGE value="Todo Fix ContentEditable" />
     <MESSAGE value="Fix Offset ContentEditable Bug." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Offset ContentEditable Bug." />
+    <MESSAGE value="Fix First Row ContentEditable Bug." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix First Row ContentEditable Bug." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -618,6 +634,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="51" column="26" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -657,6 +674,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -711,6 +729,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -815,6 +834,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3338438">
           <caret line="141" column="28" selection-start-line="141" selection-start-column="28" selection-end-line="141" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -838,13 +858,6 @@
         <state vertical-scroll-proportion="0.5790251">
           <caret line="31" column="14" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/Components/MarkdownView/markdownview.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47166923">
-          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -879,14 +892,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/Components/MarkdownView/MarkdownView.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/App/App.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -897,8 +902,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/Components/Note/ContentEditable.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7311669">
-          <caret line="34" column="57" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="46" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/Components/MarkdownView/MarkdownView.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="62" selection-start-line="13" selection-start-column="62" selection-end-line="13" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/Components/MarkdownView/markdownview.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63246554">
+          <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
           <folding />
         </state>
       </provider>

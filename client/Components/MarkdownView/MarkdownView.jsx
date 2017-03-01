@@ -11,11 +11,10 @@ export default class MarkdownView extends Component {
         let text = "";
         this.props.pages.forEach((p, i)=> {
             if(typeof p.noteContent == 'string'){
-                text += p.noteContent;
+                text += p.noteContent.replace(/<\/?.+?>/g, "\r");
                 return;
             }
             var txt = p.noteContent.innerHTML.toString().replace(/<\/?.+?>/g, "");
-            console.log(txt);
             text += txt;
         });
         return text;
