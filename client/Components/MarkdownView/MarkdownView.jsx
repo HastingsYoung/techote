@@ -15,6 +15,7 @@ export default class MarkdownView extends Component {
                 return;
             }
             var txt = p.noteContent.innerHTML.toString().replace(/<\/?.+?>/g, "");
+            console.log(txt);
             text += txt;
         });
         return text;

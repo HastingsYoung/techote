@@ -10,9 +10,9 @@ export default class App extends Component {
         this.state = {
             pages: [
                 {
-                    cueColumn: "Cue",
-                    noteContent: "Note",
-                    summary: "Summary"
+                    cueColumn: "",
+                    noteContent: "",
+                    summary: ""
                 }
             ],
             currentFocus: {
