@@ -101,10 +101,19 @@ export default class App extends Component {
         });
     }
 
-    onPageChange(i, page) {
+    onPageChange(i, page, region, row, char, func) {
         let p = this.state.pages;
         p[i] = page;
-        this.setState(p);
+        let cf = {
+            page: i,
+            region: region,
+            row: row,
+            char: char
+        };
+        this.setState({
+            pages: p,
+            currentFocus: cf
+        }, func);
     }
 
     render() {

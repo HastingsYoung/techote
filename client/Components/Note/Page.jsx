@@ -6,28 +6,28 @@ export default class Page extends Component {
         super(props);
     }
 
-    onCueChange(node) {
+    onCueChange(node, row, char, func) {
         this.props.onPageChange(this.props.index, {
             cueColumn: node.innerHTML,
             noteContent: this.props.noteContent,
             summary: this.props.summary
-        });
+        }, 0, row, char, func);
     }
 
-    onNoteChange(node) {
+    onNoteChange(node, row, char, func) {
         this.props.onPageChange(this.props.index, {
             cueColumn: this.props.cueColumn,
             noteContent: node.innerHTML,
             summary: this.props.summary
-        });
+        }, 1, row, char, func);
     }
 
-    onSummaryChange(node) {
+    onSummaryChange(node, row, char, func) {
         this.props.onPageChange(this.props.index, {
             cueColumn: this.props.cueColumn,
             noteContent: this.props.noteContent,
             summary: node.innerHTML
-        });
+        }, 2, row, char, func);
     }
 
     render() {
