@@ -32,28 +32,28 @@ export default class App extends Component {
     addPage() {
         let pages = this.state.pages;
         pages.push({
-            cueColumn: "Cue",
-            noteContent: "Note",
-            summary: "Summary"
+            cueColumn: "",
+            noteContent: "",
+            summary: ""
         });
         this.setState(pages);
     }
 
     addUnorderList(i) {
         let pages = this.state.pages;
-        let content = pages[i].noteContent;
+        let content = pages[i.page].noteContent;
         let d = document.createElement("div");
         let l1 = document.createElement("div");
         let l2 = document.createElement("div");
         let l3 = document.createElement("div");
-        l1.innerHTML = `\n- `;
-        l2.innerHTML = `\n- `;
-        l3.innerHTML = `\n- `;
+        l1.innerHTML = `\n-&nbsp;`;
+        l2.innerHTML = `\n-&nbsp;`;
+        l3.innerHTML = `\n-&nbsp;`;
         d.appendChild(l1);
         d.appendChild(l2);
         d.appendChild(l3);
         content += d.innerHTML;
-        pages[i].noteContent = content;
+        pages[i.page].noteContent = content;
         this.setState({
             pages: pages
         });
@@ -61,19 +61,19 @@ export default class App extends Component {
 
     addOrderList(i) {
         let pages = this.state.pages;
-        let content = pages[i].noteContent;
+        let content = pages[i.page].noteContent;
         let d = document.createElement("div");
         let l1 = document.createElement("div");
         let l2 = document.createElement("div");
         let l3 = document.createElement("div");
-        l1.innerHTML = `\n1. `;
-        l2.innerHTML = `\n2. `;
-        l3.innerHTML = `\n3. `;
+        l1.innerHTML = `\n1.&nbsp;`;
+        l2.innerHTML = `\n2.&nbsp;`;
+        l3.innerHTML = `\n3.&nbsp;`;
         d.appendChild(l1);
         d.appendChild(l2);
         d.appendChild(l3);
         content += d.innerHTML;
-        pages[i].noteContent = content;
+        pages[i.page].noteContent = content;
         this.setState({
             pages: pages
         });
