@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import {MDParser, Node} from '../../../common/markdownparser';
+
 var d3 = require("d3");
 
 export default class MindMap extends Component {
@@ -7,49 +9,33 @@ export default class MindMap extends Component {
         super(props);
     }
 
-    componentDidMount(){
+    componentDidUpdate() {
         let dom = ReactDOM.findDOMNode(this);
-        let svg = d3.select("svg").attr("width",800).attr("height",600);
-        let g = svg.append("g").attr("transform",function(){
+        dom.innerHTML = "";
+        let canvas = d3.select(".canvas").append("svg");
+        let svg = d3.select("svg").attr("width", 800).attr("height", 600);
+        let g = svg.append("g").attr("transform", function () {
             return "translate(100,50)";
         });
 
-        let table = [{
-            "name": "node1",
-            "parent": ""
-        }, {
-            "name": "node2",
-            "parent": "node1"
-        }, {
-            "name": "node3",
-            "parent": "node1"
-        }, {
-            "name": "node4",
-
-            "parent": "node2"
-        }, {
-            "name": "node5",
-            "parent": "node2"
-        }, {
-            "name": "node6",
-            "parent": "node3"
-        },{
-            "name": "node7",
-            "parent": "node3"
-        },{
-            "name": "node8",
-            "parent": "node6"
-        },{
-            "name": "node9",
-            "parent": "node6"
-        },{
-            "name": "node10",
-            "parent": "node6"
-        },{
-            "name": "node11",
-            "parent": "node5"
-        }];
-
+        let table = MDParser().parse(this.props.data);
+        console.log(this.props.data);
+        if (!(typeof table == 'object' && table.length))
+            table = [{
+                name: "node1",
+                parent: ""
+            }, {
+                name: "node2",
+                parent: "node1"
+            }, {
+                name: "node3",
+                parent: "node1"
+            }];
+        table = table.map((n, i)=>n.parent ? {
+            name: n.name,
+            parent: n.parent
+        } : {name: n.name, parent: "Page"});
+        table.push({name: "Page", parent: ""});
         let root = d3.stratify().id(function (d) {
             return d.name;
         }).parentId(function (d) {
@@ -88,12 +74,10 @@ export default class MindMap extends Component {
             .text(function (d) {
                 return d.id;
             });
-        ;
     }
 
     render() {
         return <div className="canvas" style={{display:"flex",flexFlow:"column",flex:"1",height:"100vh"}}>
-            <svg></svg>
         </div>
     }
 }

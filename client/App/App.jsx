@@ -116,6 +116,23 @@ export default class App extends Component {
         }, func);
     }
 
+    renderMindMaps() {
+        let maps = [];
+        this.state.pages.forEach((p, i)=> {
+            let txt = "";
+            if (typeof p.cueColumn == 'string') {
+                txt = p.cueColumn.replace(/<\/?.+?>/g, "");
+                if (txt)
+                    maps.push(<MindMap key={i} data={txt}></MindMap>);
+                return;
+            }
+            txt = p.cueColumn.innerHTML.toString().replace(/<\/?.+?>/g, "");
+            if (txt)
+                maps.push(<MindMap key={i} data={txt}></MindMap>);
+        });
+        return maps;
+    }
+
     render() {
         return (<div className="app" style={{display:"flex",flexFlow:"row",width:"100%"}}>
             <div className="left-view"
@@ -133,7 +150,7 @@ export default class App extends Component {
             </div>
             <div className="right-view"
                  style={{position:"relative",width:"50vw",height:"100vh",overflowX:"hidden",overflowY:"scroll"}}>
-                <MindMap></MindMap>
+                {this.renderMindMaps()}
             </div>
         </div>);
     }
