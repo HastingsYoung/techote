@@ -39,7 +39,7 @@ export const MDParser = ()=> {
     let parser = {};
 
     parser.parseLine = (txt, index, node)=> {
-        if(!index && index != 0)
+        if (!index && index != 0)
             throw new Error("No index of line error!");
         let lastNode = null;
         let currNode = {};
@@ -79,11 +79,15 @@ export const MDParser = ()=> {
         for (let k in lines) {
             try {
                 if (!_nodes.length) {
-                    _nodes.push(parser.parseLine(lines[k], k));
+                    let n = parser.parseLine(lines[k], k);
+                    if (n.content)
+                        _nodes.push(n);
                 } else {
                     let tNode = _nodes.pop();
                     _nodes.push(tNode);
-                    _nodes.push(parser.parseLine(lines[k], k, tNode));
+                    let n = parser.parseLine(lines[k], k, tNode);
+                    if (n.content)
+                        _nodes.push(n);
                 }
             } catch (err) {
                 throw new Error("Parsing Error at line: " + k + " " + err);

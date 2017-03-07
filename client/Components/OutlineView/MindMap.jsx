@@ -11,15 +11,16 @@ export default class MindMap extends Component {
 
     componentDidUpdate() {
         let dom = ReactDOM.findDOMNode(this);
+        const width = window.screen.width / 2;
+        const height = window.screen.height / 2;
         dom.innerHTML = "";
         let canvas = d3.select(".canvas").append("svg");
-        let svg = d3.select("svg").attr("width", 800).attr("height", 600);
+        let svg = d3.select("svg").attr("width", width * 0.95).attr("height", height * 0.95);
         let g = svg.append("g").attr("transform", function () {
             return "translate(100,50)";
         });
 
         let table = MDParser().parse(this.props.data);
-        console.log(this.props.data);
         if (!(typeof table == 'object' && table.length))
             table = [{
                 name: "node1",
@@ -33,9 +34,10 @@ export default class MindMap extends Component {
             }];
         table = table.map((n, i)=>n.parent ? {
             name: n.name,
-            parent: n.parent
-        } : {name: n.name, parent: "Page"});
-        table.push({name: "Page", parent: ""});
+            parent: n.parent,
+            content: n.content
+        } : {name: n.name, parent: "Page", content: n.content});
+        table.push({name: "Page", parent: "", content: "Note Page"});
         let root = d3.stratify().id(function (d) {
             return d.name;
         }).parentId(function (d) {
@@ -45,13 +47,6 @@ export default class MindMap extends Component {
         });
         let cluster = d3.cluster().size([300, 400]);
         cluster(root);
-        let links = g.selectAll(".link").data(root.descendants().slice(1)).enter().append("path").attr("class", "link").attr("d", function (d, i) {
-            return "M" + d.y + "," + d.x
-                + "C" + (d.parent.y) + "," + d.x
-                + " " + (d.parent.y) + "," + d.parent.x
-                + " " + (d.parent.y) + "," + d.parent.x;
-        });
-
         let node = g.selectAll(".node")
             .data(root.descendants())
             .enter().append("g")
@@ -62,18 +57,30 @@ export default class MindMap extends Component {
                 return "translate(" + d.y + "," + d.x + ")";
             });
 
-        node.append("circle").attr("r", 5);
+        node.append("circle").attr("r", 13);
         node.append("text")
             .attr("dy", 3)
             .attr("x", function (d) {
-                return d.children ? -8 : 8;
+                return d.children ? -15 : 15;
             })
             .style("text-anchor", function (d) {
                 return d.children ? "end" : "start";
             })
             .text(function (d) {
-                return d.id;
+                return d.data.content;
             });
+        let hiddenLinks = g.selectAll(".hd-link").data(root.descendants().slice(1)).enter().append("path").attr("class", "hd-link").attr("d", function (d, i) {
+            return "M" + d.y + "," + d.x
+                + "C" + (d.parent.y) + "," + d.x
+                + " " + (d.parent.y) + "," + d.parent.x
+                + " " + (d.parent.y) + "," + d.parent.x;
+        });
+        let links = g.selectAll(".link").data(root.descendants().slice(1)).enter().append("path").attr("class", "link").attr("d", function (d, i) {
+            return "M" + d.y + "," + d.x
+                + "C" + (d.parent.y) + "," + d.x
+                + " " + (d.parent.y) + "," + d.parent.x
+                + " " + (d.parent.y) + "," + d.parent.x;
+        });
     }
 
     render() {

@@ -1,6 +1,56 @@
+@mixin trans($time:0.3s) {
+  -webkit-transition: all $time;
+  -moz-transition: all $time;
+  -ms-transition: all $time;
+  -o-transition: all $time;
+  transition: all $time;
+}
 .link{
   fill: none;
   stroke: #555;
   stroke-opacity: 0.4;
   stroke-width: 1.5px;
+  @include trans();
+}
+.hd-link{
+  fill: none;
+  stroke: transparent;
+  stroke-width: 1.5px;
+  @include trans();
+}
+.node {
+  circle{
+    fill: #2196f3;
+  }
+  text{
+    fill: black;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: larger;
+  }
+}
+.node:hover{
+  cursor: pointer;
+  circle{
+    //-webkit-animation: backinout 0.4s 1 cubic-bezier(.79,.15,.9,.27);
+    //-webkit-animation-delay: 0.15s;
+    //animation: backinout 0.4s 1 cubic-bezier(.79,.15,.9,.27);
+    //animation-delay: 0.15s;
+  }
+}
+.node:hover ~ .hd-link{
+  stroke: #0d47a1;
+  stroke-width: 6px;
+}
+.node:hover ~ .link{
+  stroke: #fff;
+}
+@keyframes backinout {
+  33%{
+    opacity:0.75;
+    r: 5px;
+  }
+  100%{
+    opacity:1;
+    r: 15px;
+  }
 }

@@ -121,12 +121,15 @@ export default class App extends Component {
         this.state.pages.forEach((p, i)=> {
             let txt = "";
             if (typeof p.cueColumn == 'string') {
-                txt = p.cueColumn.replace(/<\/?.+?>/g, "");
+                txt = p.cueColumn.replace(/<[^/].+?>/g, `\n`);
+                txt = txt.replace(/<\/.+?>/g, "");
+                console.log(txt);
                 if (txt)
                     maps.push(<MindMap key={i} data={txt}></MindMap>);
                 return;
             }
-            txt = p.cueColumn.innerHTML.toString().replace(/<\/?.+?>/g, "");
+            txt = p.cueColumn.innerHTML.toString().replace(/<[^/].+?>/g, `\n`);
+            txt = txt.replace(/<\/.+?>/g, "");
             if (txt)
                 maps.push(<MindMap key={i} data={txt}></MindMap>);
         });
