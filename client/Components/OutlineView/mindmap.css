@@ -1,0 +1,47 @@
+.link {
+  fill: none;
+  stroke: #555;
+  stroke-opacity: 0.4;
+  stroke-width: 1.5px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; }
+
+.hd-link {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 1.5px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; }
+
+.node circle {
+  fill: #2196f3; }
+.node text {
+  fill: black;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: larger; }
+
+.node:hover {
+  cursor: pointer; }
+
+.node:hover ~ .hd-link {
+  stroke: #0d47a1;
+  stroke-width: 6px; }
+
+.node:hover ~ .link {
+  stroke: #fff; }
+
+@keyframes backinout {
+  33% {
+    opacity: 0.75;
+    r: 5px; }
+  100% {
+    opacity: 1;
+    r: 15px; } }
+
+/*# sourceMappingURL=mindmap.css.map */

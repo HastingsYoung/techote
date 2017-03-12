@@ -6,11 +6,21 @@ export default class Page extends Component {
         super(props);
     }
 
+    onTitleChange(node, row, char, func) {
+        this.props.onPageChange(this.props.index, {
+            cueColumn: this.props.cueColumn,
+            noteContent: this.props.noteContent,
+            summary: this.props.summary,
+            title: node.innerHTML
+        }, 3, row, char, func);
+    }
+
     onCueChange(node, row, char, func) {
         this.props.onPageChange(this.props.index, {
             cueColumn: node.innerHTML,
             noteContent: this.props.noteContent,
-            summary: this.props.summary
+            summary: this.props.summary,
+            title: this.props.title
         }, 0, row, char, func);
     }
 
@@ -18,7 +28,8 @@ export default class Page extends Component {
         this.props.onPageChange(this.props.index, {
             cueColumn: this.props.cueColumn,
             noteContent: node.innerHTML,
-            summary: this.props.summary
+            summary: this.props.summary,
+            title: this.props.title
         }, 1, row, char, func);
     }
 
@@ -26,13 +37,23 @@ export default class Page extends Component {
         this.props.onPageChange(this.props.index, {
             cueColumn: this.props.cueColumn,
             noteContent: this.props.noteContent,
-            summary: node.innerHTML
+            summary: node.innerHTML,
+            title: this.props.title
         }, 2, row, char, func);
     }
 
     render() {
         return (
             <div className="note">
+                <ContentEditable ref={"cue"} className="notebook-title" onChange={this.onTitleChange.bind(this)}
+                                 html={this.props.title}
+                                 onFocus={()=>{
+                                            this.props.onFocus(this.props.index,3,this.props.ances.state.currentFocus.row,this.props.ances.state.currentFocus.char);
+                                         }}
+                                 onBlur={()=>{
+                                            this.props.onBlur(this.props.index,3,this.props.ances.state.currentFocus.row,this.props.ances.state.currentFocus.char);
+                                         }} page={this.props.index} region={3} ances={this.props.ances}>
+                </ContentEditable>
                 <div className="notebook">
                     <div className="cue-column">
                         <div className="cue-title">

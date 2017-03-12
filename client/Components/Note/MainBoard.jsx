@@ -12,7 +12,7 @@ export default class MainBoard extends Component {
         let pages = [];
         this.props.pages.forEach((page, index)=> {
             pages.push(<Page key={index} cueColumn={page.cueColumn} noteContent={page.noteContent}
-                             summary={page.summary} onFocus={this.props.onFocus} onPageChange={this.props.onPageChange}
+                             summary={page.summary} title={page.title} onFocus={this.props.onFocus} onPageChange={this.props.onPageChange}
                              index={index} onBlur={this.props.onBlur} ances={this.props.ances}></Page>);
         });
         return pages;

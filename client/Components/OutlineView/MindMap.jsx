@@ -37,7 +37,7 @@ export default class MindMap extends Component {
             parent: n.parent,
             content: n.content
         } : {name: n.name, parent: "Page", content: n.content});
-        table.push({name: "Page", parent: "", content: "Note Page"});
+        table.push({name: "Page", parent: "", content: this.props.title});
         let root = d3.stratify().id(function (d) {
             return d.name;
         }).parentId(function (d) {

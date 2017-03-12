@@ -12,7 +12,8 @@ export default class App extends Component {
                 {
                     cueColumn: "",
                     noteContent: "",
-                    summary: ""
+                    summary: "",
+                    title: "Page"
                 }
             ],
             currentFocus: {
@@ -34,7 +35,8 @@ export default class App extends Component {
         pages.push({
             cueColumn: "",
             noteContent: "",
-            summary: ""
+            summary: "",
+            title: "Page"
         });
         this.setState(pages);
     }
@@ -120,18 +122,22 @@ export default class App extends Component {
         let maps = [];
         this.state.pages.forEach((p, i)=> {
             let txt = "";
+            let title = "";
             if (typeof p.cueColumn == 'string') {
                 txt = p.cueColumn.replace(/<[^/].+?>/g, `\n`);
                 txt = txt.replace(/<\/.+?>/g, "");
-                console.log(txt);
+                title = p.title.replace(/<[^/].+?>/g, `\n`);
+                title = title.replace(/<\/.+?>/g, "");
                 if (txt)
-                    maps.push(<MindMap key={i} data={txt}></MindMap>);
+                    maps.push(<MindMap key={i} data={txt} title={title?title:"Page Title"}></MindMap>);
                 return;
             }
             txt = p.cueColumn.innerHTML.toString().replace(/<[^/].+?>/g, `\n`);
             txt = txt.replace(/<\/.+?>/g, "");
+            title = p.title.innerHTML.toString().replace(/<[^/].+?>/g, `\n`);
+            title = title.replace(/<\/.+?>/g, "");
             if (txt)
-                maps.push(<MindMap key={i} data={txt}></MindMap>);
+                maps.push(<MindMap key={i} data={txt} title={title?title:"Page Title"}></MindMap>);
         });
         return maps;
     }
