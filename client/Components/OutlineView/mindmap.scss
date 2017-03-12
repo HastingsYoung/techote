@@ -11,12 +11,13 @@
   stroke-opacity: 0.4;
   stroke-width: 1.5px;
   @include trans();
+  stroke-linecap: round;
 }
 .hd-link{
   fill: none;
   stroke: transparent;
   stroke-width: 1.5px;
-  @include trans();
+  stroke-linecap: round;
 }
 .node {
   circle{
@@ -39,7 +40,10 @@
 }
 .node:hover ~ .hd-link{
   stroke: #0d47a1;
-  stroke-width: 6px;
+  stroke-width: 4px;
+  stroke-dasharray: 1000, 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 3s linear infinite;
 }
 .node:hover ~ .link{
   stroke: #fff;
@@ -52,5 +56,10 @@
   100%{
     opacity:1;
     r: 15px;
+  }
+}
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
   }
 }

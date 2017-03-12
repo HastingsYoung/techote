@@ -7,17 +7,14 @@
   -moz-transition: all 0.3s;
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
-  transition: all 0.3s; }
+  transition: all 0.3s;
+  stroke-linecap: round; }
 
 .hd-link {
   fill: none;
   stroke: transparent;
   stroke-width: 1.5px;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s; }
+  stroke-linecap: round; }
 
 .node circle {
   fill: #2196f3; }
@@ -31,7 +28,10 @@
 
 .node:hover ~ .hd-link {
   stroke: #0d47a1;
-  stroke-width: 6px; }
+  stroke-width: 4px;
+  stroke-dasharray: 1000, 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 3s linear infinite; }
 
 .node:hover ~ .link {
   stroke: #fff; }
@@ -43,5 +43,8 @@
   100% {
     opacity: 1;
     r: 15px; } }
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0; } }
 
 /*# sourceMappingURL=mindmap.css.map */
