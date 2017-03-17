@@ -4,7 +4,7 @@
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  padding: 5px; }
+  padding: 0 5px; }
   .markdown-view .markdown-view-btns {
     display: flex;
     flex: 1;
