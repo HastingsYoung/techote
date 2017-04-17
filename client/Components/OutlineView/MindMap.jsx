@@ -7,13 +7,35 @@ var d3 = require("d3");
 export default class MindMap extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            dom: ""
+        }
+    }
+
+    downloadFile(fileName) {
+        let dom = this._dom;
+        if (dom) {
+            // add attributes to make sure browser can open it straightforward
+            dom.getElementsByTagName("svg")[0].setAttribute("xmlns", "http://www.w3.org/2000/svg");
+            dom.getElementsByTagName("svg")[0].setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
+            dom.getElementsByTagName("svg")[0].setAttribute("xml:space", "preserve");
+            let file = document.createElement("a");
+            let blob = new Blob([dom.innerHTML], {type: "image/svg+xml"});
+            file.href = URL.createObjectURL(blob);
+            file.download = fileName;
+            document.body.appendChild(file);
+            file.click();
+            document.body.removeChild(file);
+        }
     }
 
     componentDidUpdate() {
-        let dom = ReactDOM.findDOMNode(this);
+        let dom = ReactDOM.findDOMNode(this).getElementsByClassName("canvas")[0];
         const width = window.screen.width / 2;
         const height = window.screen.height / 2;
-        dom.innerHTML = "";
+        if (dom)
+            dom.innerHTML = "";
+        this._dom = dom;
         let canvas = d3.select(".canvas").append("svg");
         let svg = d3.select("svg").attr("width", width * 0.95).attr("height", height * 0.95);
         let g = svg.append("g").attr("transform", function () {
@@ -57,7 +79,7 @@ export default class MindMap extends Component {
                 return "translate(" + d.y + "," + d.x + ")";
             });
 
-        node.append("circle").attr("r", 13);
+        node.append("circle").attr("r", 5).style("fill", "#2196f3");
         node.append("text")
             .attr("dy", 3)
             .attr("x", function (d) {
@@ -65,7 +87,7 @@ export default class MindMap extends Component {
             })
             .style("text-anchor", function (d) {
                 return d.children ? "end" : "start";
-            })
+            }).style("fill", "black").style("font-family", "'Indie Flower', cursive").style("font-size", "larger")
             .text(function (d) {
                 return d.data.content;
             });
@@ -74,17 +96,24 @@ export default class MindMap extends Component {
                 + "C" + (d.parent.y) + "," + d.x
                 + " " + (d.parent.y) + "," + d.parent.x
                 + " " + (d.parent.y) + "," + d.parent.x;
-        });
+        }).style("fill","none").style("stroke","transparent");
         let links = g.selectAll(".link").data(root.descendants().slice(1)).enter().append("path").attr("class", "link").attr("d", function (d, i) {
             return "M" + d.y + "," + d.x
                 + "C" + (d.parent.y) + "," + d.x
                 + " " + (d.parent.y) + "," + d.parent.x
                 + " " + (d.parent.y) + "," + d.parent.x;
-        });
+        }).style("fill", "none").style("stroke-opacity", "0.4").style("stroke", "#999").style("stroke-opacity", "1.5px").style("stroke-linecap", "round");
     }
 
     render() {
-        return <div className="canvas" style={{display:"flex",flexFlow:"column",flex:"1",height:"100vh"}}>
-        </div>
+        return <div className="drawboard">
+            <div className="canvas" style={{display:"flex",flexFlow:"column",flex:"1",height:"100vh"}}></div>
+            <div className="canvas-download" onClick={()=>{
+                this.downloadFile(this.props.title);
+            }
+            }>
+                <i className="material-icons">file_download</i>
+            </div>
+        </div>;
     }
 }

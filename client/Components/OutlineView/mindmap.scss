@@ -1,32 +1,25 @@
-@mixin trans($time:0.3s) {
-  -webkit-transition: all $time;
-  -moz-transition: all $time;
-  -ms-transition: all $time;
-  -o-transition: all $time;
-  transition: all $time;
+@mixin trans($time:0.3s, $delay:0s) {
+  -webkit-transition: all $time $delay;
+  -moz-transition: all $time $delay;
+  -ms-transition: all $time $delay;
+  -o-transition: all $time $delay;
+  transition: all $time $delay;
 }
 .link{
-  fill: none;
-  stroke: #555;
-  stroke-opacity: 0.4;
-  stroke-width: 1.5px;
   @include trans();
   stroke-linecap: round;
 }
 .hd-link{
-  fill: none;
-  stroke: transparent;
+  //fill: none;
+  //stroke: transparent;
   stroke-width: 1.5px;
   stroke-linecap: round;
 }
 .node {
-  circle{
-    fill: #2196f3;
-  }
   text{
-    fill: black;
-    font-family: 'Shadows Into Light', cursive;
-    font-size: larger;
+    //fill: black;
+    //font-family: 'Indie Flower', cursive;
+    //font-size: larger;
   }
 }
 .node:hover{
@@ -40,13 +33,19 @@
 }
 .node:hover ~ .hd-link{
   stroke: #0d47a1;
-  stroke-width: 4px;
+  stroke-width: 3.5px;
   stroke-dasharray: 1000, 1000;
   stroke-dashoffset: 1000;
-  animation: dash 3s linear infinite;
+  animation: dash 3s ease infinite;
+  stroke-linejoin: round;
 }
 .node:hover ~ .link{
+  @include trans(1s);
   stroke: #fff;
+  stroke-dasharray: 1000, 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 3s ease infinite;
+  stroke-linejoin: round;
 }
 @keyframes backinout {
   33%{
@@ -61,5 +60,34 @@
 @keyframes dash {
   to {
     stroke-dashoffset: 0;
+  }
+}
+
+.canvas{
+  position: relative;
+}
+.drawboard{
+  position: relative;
+}
+.canvas-download{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  right: 30px;
+  top: 40px;
+  width: 45px;
+  height: 45px;
+  background-color: #f0f0f0;
+  border-radius: 100%;
+  cursor: pointer;
+  @include trans();
+  &:hover{
+    background-color: dimgray;
+    @include trans();
+    i {
+      color: #ffffff;
+    }
   }
 }
