@@ -29,20 +29,19 @@ export default class MindMap extends Component {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         // initialise content when components were first mounted
         this.componentDidUpdate();
     }
 
     componentDidUpdate() {
-        let dom = ReactDOM.findDOMNode(this).getElementsByClassName("canvas")[0];
+        let dom = ReactDOM.findDOMNode(this).querySelector(".canvas");
         const width = window.screen.width / 2;
-        const height = window.screen.height / 2;
+        const height = window.screen.height;
         if (dom)
             dom.innerHTML = "";
         this._dom = dom;
-        let canvas = d3.select(".canvas").append("svg");
-        let svg = d3.select("svg").attr("width", width * 0.95).attr("height", height * 0.95);
+        let svg = d3.select(dom).append("svg").attr("width", width * 0.95).attr("height", height * 0.95);
         let g = svg.append("g").attr("transform", function () {
             return "translate(100,50)";
         });
@@ -72,7 +71,7 @@ export default class MindMap extends Component {
         })(table).sort(function (a, b) {
             return a.height - b.height
         });
-        let cluster = d3.cluster().size([300, 400]);
+        let cluster = d3.cluster().size([height*0.7, 400]);
         cluster(root);
         let node = g.selectAll(".node")
             .data(root.descendants())
@@ -101,7 +100,7 @@ export default class MindMap extends Component {
                 + "C" + (d.parent.y) + "," + d.x
                 + " " + (d.parent.y) + "," + d.parent.x
                 + " " + (d.parent.y) + "," + d.parent.x;
-        }).style("fill","none").style("stroke","transparent");
+        }).style("fill", "none").style("stroke", "transparent");
         let links = g.selectAll(".link").data(root.descendants().slice(1)).enter().append("path").attr("class", "link").attr("d", function (d, i) {
             return "M" + d.y + "," + d.x
                 + "C" + (d.parent.y) + "," + d.x

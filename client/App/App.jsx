@@ -158,7 +158,7 @@ export default class App extends Component {
                 title = p.title.replace(/<[^/].+?>/g, `\n`);
                 title = title.replace(/<\/.+?>/g, "");
                 if (txt)
-                    maps.push(<MindMap key={i} data={txt} title={title?title:"Page Title"}></MindMap>);
+                    maps.push(<MindMap key={i} data={txt} title={title?title:"Page Title"} idx={i}></MindMap>);
                 return;
             }
             txt = p.cueColumn.innerHTML.toString().replace(/<[^/].+?>/g, `\n`);
@@ -166,7 +166,7 @@ export default class App extends Component {
             title = p.title.innerHTML.toString().replace(/<[^/].+?>/g, `\n`);
             title = title.replace(/<\/.+?>/g, "");
             if (txt)
-                maps.push(<MindMap key={i} data={txt} title={title?title:"Page Title"}></MindMap>);
+                maps.push(<MindMap key={i} data={txt} title={title?title:"Page Title"} idx={i}></MindMap>);
         });
         return maps;
     }

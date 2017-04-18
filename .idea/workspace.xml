@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d37cf63c-daf3-43f6-b313-8f1839d0945d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/Components/Dashboard/Dashboard.jsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/Components/Dashboard/dashboard.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/Components/MessageBox/MessageBox.jsx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/Components/MessageBox/messagebox.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/imgs/technote-favicon.ico" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/packages" afterPath="$PROJECT_DIR$/.meteor/packages" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/versions" afterPath="$PROJECT_DIR$/.meteor/versions" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/Components/MarkdownView/markdownview.css" afterPath="$PROJECT_DIR$/client/Components/MarkdownView/markdownview.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/Components/MarkdownView/markdownview.css.map" afterPath="$PROJECT_DIR$/client/Components/MarkdownView/markdownview.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/Components/MarkdownView/markdownview.scss" afterPath="$PROJECT_DIR$/client/Components/MarkdownView/markdownview.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/App/App.jsx" afterPath="$PROJECT_DIR$/client/App/App.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/Components/Dashboard/dashboard.scss" afterPath="$PROJECT_DIR$/client/Components/Dashboard/dashboard.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/Components/Note/MainBoard.jsx" afterPath="$PROJECT_DIR$/client/Components/Note/MainBoard.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/Components/Note/mainboard.css" afterPath="$PROJECT_DIR$/client/Components/Note/mainboard.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/Components/Note/mainboard.css.map" afterPath="$PROJECT_DIR$/client/Components/Note/mainboard.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/Components/Note/mainboard.scss" afterPath="$PROJECT_DIR$/client/Components/Note/mainboard.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/Components/OutlineView/MindMap.jsx" afterPath="$PROJECT_DIR$/client/Components/OutlineView/MindMap.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/main.html" afterPath="$PROJECT_DIR$/client/main.html" />
     </list>
@@ -42,17 +33,37 @@
         <entry file="file://$PROJECT_DIR$/client/App/App.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="168" column="51" selection-start-line="168" selection-start-column="51" selection-end-line="168" selection-end-column="51" />
+              <caret line="160" column="98" selection-start-line="160" selection-start-column="98" selection-end-line="160" selection-end-column="98" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainBoard.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/Components/Note/MainBoard.jsx">
+      <file leaf-file-name="MindMap.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/Components/OutlineView/MindMap.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+              <caret line="73" column="51" selection-start-line="73" selection-start-column="51" selection-end-line="73" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboard.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/Components/Dashboard/dashboard.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.36753446">
+              <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/main.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.25">
+              <caret line="18" column="59" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -63,26 +74,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mainboard.scss" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/Components/Note/mainboard.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34456354">
-              <caret line="40" column="3" selection-start-line="40" selection-start-column="3" selection-end-line="40" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="note.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/collections/note.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -119,15 +110,15 @@
         <option value="$PROJECT_DIR$/collections/note.js" />
         <option value="$PROJECT_DIR$/client/Components/MessageBox/MessageBox.jsx" />
         <option value="$PROJECT_DIR$/client/Components/MessageBox/messagebox.scss" />
-        <option value="$PROJECT_DIR$/client/App/App.jsx" />
-        <option value="$PROJECT_DIR$/client/Components/OutlineView/MindMap.jsx" />
         <option value="$PROJECT_DIR$/client/Components/Profile/Profile.jsx" />
         <option value="$PROJECT_DIR$/client/Components/MarkdownView/markdownview.scss" />
-        <option value="$PROJECT_DIR$/client/Components/Note/MainBoard.jsx" />
-        <option value="$PROJECT_DIR$/client/main.html" />
         <option value="$PROJECT_DIR$/client/Components/Dashboard/Dashboard.jsx" />
-        <option value="$PROJECT_DIR$/client/Components/Dashboard/dashboard.scss" />
         <option value="$PROJECT_DIR$/client/Components/Note/mainboard.scss" />
+        <option value="$PROJECT_DIR$/client/Components/Note/MainBoard.jsx" />
+        <option value="$PROJECT_DIR$/client/App/App.jsx" />
+        <option value="$PROJECT_DIR$/client/Components/OutlineView/MindMap.jsx" />
+        <option value="$PROJECT_DIR$/client/main.html" />
+        <option value="$PROJECT_DIR$/client/Components/Dashboard/dashboard.scss" />
       </list>
     </option>
   </component>
@@ -291,72 +282,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="techote" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="techote" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Note" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="techote" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="techote" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MarkdownView" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="techote" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="techote" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="List" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -622,7 +547,19 @@
       <option name="project" value="LOCAL" />
       <updated>1492481139713</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Add DashBoard and Profile, Fix Menu Position Bug.">
+      <created>1492487695224</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1492487695224</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Add Image.">
+      <created>1492487726355</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1492487726355</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -679,7 +616,9 @@
     <MESSAGE value="Add Note Collection." />
     <MESSAGE value="Add Download Button." />
     <MESSAGE value="Connect to DB." />
-    <option name="LAST_COMMIT_MESSAGE" value="Connect to DB." />
+    <MESSAGE value="Add DashBoard and Profile, Fix Menu Position Bug." />
+    <MESSAGE value="Add Image." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Image." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1007,10 +946,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/Components/OutlineView/MindMap.jsx">
+    <entry file="file://$PROJECT_DIR$/client/Components/Note/mainboard.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70901036">
-          <caret line="32" column="50" selection-start-line="32" selection-start-column="50" selection-end-line="32" selection-end-column="50" />
+        <state vertical-scroll-proportion="-4.375">
+          <caret line="40" column="3" selection-start-line="40" selection-start-column="3" selection-end-line="40" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/Components/Note/MainBoard.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6011817">
+          <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1018,31 +965,7 @@
     <entry file="file://$PROJECT_DIR$/client/App/App.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="168" column="51" selection-start-line="168" selection-start-column="51" selection-end-line="168" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/Components/Note/MainBoard.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4027565">
-          <caret line="30" column="35" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/Components/Dashboard/dashboard.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7687596">
-          <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+          <caret line="160" column="98" selection-start-line="160" selection-start-column="98" selection-end-line="160" selection-end-column="98" />
           <folding />
         </state>
       </provider>
@@ -1055,10 +978,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/Components/Note/mainboard.scss">
+    <entry file="file://$PROJECT_DIR$/client/Components/OutlineView/MindMap.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34456354">
-          <caret line="40" column="3" selection-start-line="40" selection-start-column="3" selection-end-line="40" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="73" column="51" selection-start-line="73" selection-start-column="51" selection-end-line="73" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.25">
+          <caret line="18" column="59" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/Components/Dashboard/dashboard.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36753446">
+          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
           <folding />
         </state>
       </provider>

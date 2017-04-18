@@ -31,8 +31,16 @@
     background-image: url("/imgs/profile-bg.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    border-bottom-left-radius: 15px;
     .profile {
       position: relative;
+      cursor: pointer;
+      @include trans();
+      opacity: 1;
+      &:hover {
+        @include trans();
+        opacity: .88;
+      }
       img {
         position: relative;
         left: 0;
@@ -72,8 +80,11 @@
         flex: 1;
         margin: 0 15px;
         font-family: 'Tangerine';
-        h2,h3 {
+        h2, h3 {
           margin: 0 0 0 0;
+        }
+        span {
+          font-size: 20px;
         }
       }
     }

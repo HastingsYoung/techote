@@ -33,7 +33,7 @@ export default class MainBoard extends Component {
                     <i className="material-icons" onClick={this._onToggleDashboard.bind(this)}>dashboard</i>
                 </div>
                 <div className="main-board-btn" onClick={this.props.switchView}>
-                    <i className="material-icons">note</i>
+                    <i className="material-icons">remove_red_eye</i>
                 </div>
                 <div className="main-board-btn" onClick={this.props.addPage}>
                     <i className="material-icons">assignment</i>
