@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 import MarkdownView from '../Components/MarkdownView/MarkdownView.jsx';
 import MainBoard from '../Components/Note/MainBoard.jsx';
 import MindMap from '../Components/OutlineView/MindMap.jsx';
+import MessageBox from '../Components/MessageBox/MessageBox.jsx';
 
 export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            noteId: "",
             pages: [
                 {
                     cueColumn: "",
@@ -24,6 +26,25 @@ export default class App extends Component {
             },
             isMarkdownView: false
         }
+        let self = this;
+        Meteor.call("users.init.notes", "hastings", {
+            cueColumn: "",
+            noteContent: "",
+            summary: "",
+            title: "Page"
+        }, function (err, res) {
+            if (err)
+                console.log(err);
+            else {
+                self.setState({pages: res.pages, noteId: res._id});
+            }
+        });
+    }
+
+    save() {
+        Meteor.call("users.update.notes", this.state.noteId, this.state.pages, function (err, res) {
+            MessageBox.show("Successfully saved all contents!","success");
+        });
     }
 
     switchView() {
@@ -32,11 +53,19 @@ export default class App extends Component {
 
     addPage() {
         let pages = this.state.pages;
-        pages.push({
+        let newPage = {
             cueColumn: "",
             noteContent: "",
             summary: "",
             title: "Page"
+        };
+        pages.push(newPage);
+        Meteor.call("users.add.notes", "hastings", newPage, function (err, res) {
+            if (err)
+                console.log(err);
+            else {
+
+            }
         });
         this.setState(pages);
     }
@@ -144,6 +173,7 @@ export default class App extends Component {
 
     render() {
         return (<div className="app" style={{display:"flex",flexFlow:"row",width:"100%"}}>
+            <MessageBox></MessageBox>
             <div className="left-view"
                  style={{position:"relative",width:"50vw",height:"100vh",overflowX:"hidden",overflowY:"scroll"}}>
                 {this.state.isMarkdownView ? <MarkdownView pages={this.state.pages}
@@ -155,7 +185,9 @@ export default class App extends Component {
                                onFocus={this.onFocus.bind(this)} pages={this.state.pages}
                                onPageChange={this.onPageChange.bind(this)}
                                onBlur={this.onBlur.bind(this)}
-                               ances={this}></MainBoard>}
+                               ances={this}
+                               save={this.save.bind(this)}
+                    ></MainBoard>}
             </div>
             <div className="right-view"
                  style={{position:"relative",width:"50vw",height:"100vh",overflowX:"hidden",overflowY:"scroll"}}>

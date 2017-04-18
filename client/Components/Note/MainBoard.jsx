@@ -21,6 +21,10 @@ export default class MainBoard extends Component {
     render() {
         return (<div className="main-board">
             <div className="main-board-btns">
+
+                <div className="main-board-btn">
+                    <i className="material-icons">dashboard</i>
+                </div>
                 <div className="main-board-btn" onClick={this.props.switchView}>
                     <i className="material-icons">note</i>
                 </div>
@@ -32,6 +36,9 @@ export default class MainBoard extends Component {
                 </div>
                 <div className="main-board-btn" onClick={this.props.addOrderList}>
                     <i className="material-icons">playlist_add</i>
+                </div>
+                <div className="main-board-btn">
+                    <i className="material-icons" onClick={this.props.save}>save</i>
                 </div>
             </div>
             {this.renderPages()}

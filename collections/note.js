@@ -33,9 +33,24 @@ if (Meteor.isServer) {
                         pages: pages
                     }
                 });
-                return node._id;
+                return note._id;
             }
-
+        },
+        'users.init.notes'(userId,page){
+            let notes = Notes.find({userId: userId});
+            if (!notes.count()) {
+                let noteId = new Mongo.ObjectID()._str;
+                Notes.insert({
+                    _id: noteId,
+                    userId: userId,
+                    pages: page ? [page] : []
+                });
+                let n = Notes.findOne({_id:noteId});
+                return n;
+            } else {
+                let note = notes.fetch()[0];
+                return note;
+            }
         },
         'users.update.notes'(noteId, pages){
             Notes.update({
@@ -45,6 +60,13 @@ if (Meteor.isServer) {
                     pages: pages
                 }
             });
+        },
+        'users.delete.notes'(noteId) {
+            Notes.remove({_id:noteId});
+        },
+        'users.find.notes'(userId){
+            let notes = Notes.find({userId:userId});
+            return notes.fetch();
         }
     });
 }
@@ -58,7 +80,8 @@ Schema.NoteSchema = new SimpleSchema({
     },
     pages: {
         type: Array,
-        label: "pages array"
+        label: "pages array",
+        defaultValue:[]
     },
     "pages.$": {
         type: Object,
