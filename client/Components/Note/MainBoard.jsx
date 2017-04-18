@@ -1,11 +1,19 @@
 import React,{Component} from 'react';
 import CheckList from '../CheckList/CheckList.jsx';
 import Page from './Page.jsx';
+import Dashboard from '../Dashboard/Dashboard.jsx';
 import './mainboard.css';
 
 export default class MainBoard extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            dashboardVisible: false
+        }
+    }
+
+    _onToggleDashboard(){
+        this.setState({dashboardVisible:!this.state.dashboardVisible});
     }
 
     renderPages() {
@@ -21,9 +29,8 @@ export default class MainBoard extends Component {
     render() {
         return (<div className="main-board">
             <div className="main-board-btns">
-
                 <div className="main-board-btn">
-                    <i className="material-icons">dashboard</i>
+                    <i className="material-icons" onClick={this._onToggleDashboard.bind(this)}>dashboard</i>
                 </div>
                 <div className="main-board-btn" onClick={this.props.switchView}>
                     <i className="material-icons">note</i>
@@ -41,6 +48,7 @@ export default class MainBoard extends Component {
                     <i className="material-icons" onClick={this.props.save}>save</i>
                 </div>
             </div>
+            <Dashboard visible={this.state.dashboardVisible}></Dashboard>
             {this.renderPages()}
         </div>);
     }

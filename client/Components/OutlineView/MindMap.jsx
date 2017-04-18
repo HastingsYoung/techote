@@ -29,6 +29,11 @@ export default class MindMap extends Component {
         }
     }
 
+    componentDidMount(){
+        // initialise content when components were first mounted
+        this.componentDidUpdate();
+    }
+
     componentDidUpdate() {
         let dom = ReactDOM.findDOMNode(this).getElementsByClassName("canvas")[0];
         const width = window.screen.width / 2;
