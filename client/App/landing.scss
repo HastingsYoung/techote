@@ -1,0 +1,107 @@
+@mixin trans($time:0.3s, $delay:0s) {
+  -webkit-transition: all $time $delay;
+  -moz-transition: all $time $delay;
+  -ms-transition: all $time $delay;
+  -o-transition: all $time $delay;
+  transition: all $time $delay;
+}
+
+.landing {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100vh;
+  .login-container {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    width: 30vw;
+    height: 60vh;
+    background-color: #f6f6f6;
+    .logo {
+      position: relative;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 3px lightslategray;
+      border-radius: 100%;
+      img {
+        position: relative;
+        width: 8vw;
+        height: 8vw;
+        border-radius: 100%;
+        border: 5px solid #f0f0f0;
+      }
+      margin-bottom: 20px;
+    }
+    .login-btns {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .login-btn {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        white-space: nowrap;
+        margin: 1vw;
+        padding: 10px 20px;
+        width: 6vw;
+        cursor: pointer;
+        font-family: 'Tangerine';
+        letter-spacing: 2px;
+        font-size: 25px;
+        @include trans();
+      }
+      .login-btn.login {
+        background-color: #00d95a;
+        color: #ffffff;
+        box-shadow: 0 0 5px #01a252;
+        &:hover {
+          box-shadow: 0 0 15px #01a252;
+          @include trans();
+        }
+      }
+      .login-btn.signup {
+        background-color: #ff2222;
+        color: #ffffff;
+        box-shadow: 0 0 5px #FF0000;
+        &:hover {
+          @include trans();
+          box-shadow: 0 0 15px #FF0000;
+        }
+      }
+    }
+  }
+  background: url("/imgs/login-bg.png");
+}
+
+.input-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 5px silver;
+  padding: 10px;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  .input-content {
+    input {
+      border: 0;
+      box-shadow: none;
+      width: 18vw;
+      height: 40px;
+      font-family: 'Tangerine';
+      letter-spacing: 6px;
+      text-align: center;
+      font-size: 20px;
+    }
+  }
+}
