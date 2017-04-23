@@ -20,7 +20,7 @@
     align-items: center;
     justify-content: center;
     width: 30vw;
-    height: 60vh;
+    height: 75vh;
     background-color: #f6f6f6;
     .logo {
       position: relative;
@@ -29,12 +29,12 @@
       align-items: center;
       justify-content: center;
       box-shadow: 0 0 3px lightslategray;
-      border-radius: 100%;
+      border-radius: 20%;
       img {
         position: relative;
         width: 8vw;
         height: 8vw;
-        border-radius: 100%;
+        border-radius: 20%;
         border: 5px solid #f0f0f0;
       }
       margin-bottom: 20px;

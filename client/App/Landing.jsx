@@ -1,14 +1,27 @@
 import React,{Component} from 'react';
-
+import {Captcha} from '../../common/captcha'
 import './landing.css';
 
 export default class Landing extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            uname:"",
+            pw:"",
+            cpa:""
+        }
     }
 
     _onLogin(){
         this.props.history.push("/tnote");
+    }
+
+    componentDidUpdate(){
+        Captcha("Technote");
+    }
+
+    componentDidMount(){
+        this.componentDidUpdate()
     }
 
     render() {
@@ -17,8 +30,16 @@ export default class Landing extends Component {
                 <div className="logo">
                     <img src="/imgs/login-bg-2.jpg" alt=""/>
                 </div>
-                <InputBox placeholder="Username" onChange={()=>{}}></InputBox>
-                <InputBox placeholder="Password" password={true} onChange={()=>{}}></InputBox>
+                <InputBox placeholder="Username" value={this.state.uname} onChange={(evt)=>{
+                    this.setState({uname:evt.target.value});
+                }}></InputBox>
+                <InputBox placeholder="Password" value={this.state.pw} password={true} onChange={(evt)=>{
+                    this.setState({pw:evt.target.value});
+                }}></InputBox>
+                <InputBox placeholder="Captcha" value={this.state.cpa} password={false} onChange={(evt)=>{
+                    this.setState({cpa:evt.target.value});
+                }}></InputBox>
+                <canvas id="cnvs"></canvas>
                 <div className="login-btns">
                     <div className="login-btn login" onClick={this._onLogin.bind(this)}>
                         Login
