@@ -11,11 +11,13 @@
     "draft-js": "^0.10.0",
     "draft-js-editor": "^1.8.13",
     "history": "^4.6.1",
+    "jspdf-yworks": "^1.2.68",
     "marked": "^0.3.6",
     "meteor-node-stubs": "~0.2.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router": "^4.1.1",
-    "simpl-schema": "^0.2.3"
+    "simpl-schema": "^0.2.3",
+    "svg2pdf.js": "^1.0.6"
   }
 }

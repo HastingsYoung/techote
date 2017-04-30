@@ -1,4 +1,4 @@
-@mixin trans($time:0.3s, $delay:0s) {
+@mixin trans($time:3s, $delay:0s) {
   -webkit-transition: all $time $delay;
   -moz-transition: all $time $delay;
   -ms-transition: all $time $delay;
@@ -6,7 +6,6 @@
   transition: all $time $delay;
 }
 .link{
-  @include trans();
   stroke-linecap: round;
 }
 .hd-link{
@@ -14,6 +13,8 @@
   //stroke: transparent;
   stroke-width: 1.5px;
   stroke-linecap: round;
+  stroke-dasharray: 1000, 1000;
+  stroke-dashoffset: 1000;
 }
 .node {
   text{
@@ -32,19 +33,18 @@
   }
 }
 .node:hover ~ .hd-link{
+  @include trans();
   stroke: #0d47a1;
   stroke-width: 3.5px;
-  stroke-dasharray: 1000, 1000;
-  stroke-dashoffset: 1000;
-  animation: dash 3s ease infinite;
+  stroke-dashoffset: 0;
+  //animation: dash 3s ease 1;
   stroke-linejoin: round;
 }
 .node:hover ~ .link{
-  @include trans(1s);
+  @include trans();
   stroke: #fff;
-  stroke-dasharray: 1000, 1000;
-  stroke-dashoffset: 1000;
-  animation: dash 3s ease infinite;
+  //stroke-dasharray: 500, 500;
+  //stroke-dashoffset: 500;
   stroke-linejoin: round;
 }
 @keyframes backinout {
@@ -57,11 +57,12 @@
     r: 15px;
   }
 }
-@keyframes dash {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
+// will cause bug
+//@keyframes dash {
+//  to {
+//    stroke-dashoffset: 0;
+//  }
+//}
 
 .canvas{
   position: relative;

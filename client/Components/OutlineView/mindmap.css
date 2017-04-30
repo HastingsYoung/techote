@@ -1,36 +1,33 @@
 .link {
-  -webkit-transition: all 0.3s 0s;
-  -moz-transition: all 0.3s 0s;
-  -ms-transition: all 0.3s 0s;
-  -o-transition: all 0.3s 0s;
-  transition: all 0.3s 0s;
   stroke-linecap: round; }
 
 .hd-link {
   stroke-width: 1.5px;
-  stroke-linecap: round; }
+  stroke-linecap: round;
+  stroke-dasharray: 1000, 1000;
+  stroke-dashoffset: 1000; }
 
 .node:hover {
   cursor: pointer; }
 
 .node:hover ~ .hd-link {
+  -webkit-transition: all 3s 0s;
+  -moz-transition: all 3s 0s;
+  -ms-transition: all 3s 0s;
+  -o-transition: all 3s 0s;
+  transition: all 3s 0s;
   stroke: #0d47a1;
   stroke-width: 3.5px;
-  stroke-dasharray: 1000, 1000;
-  stroke-dashoffset: 1000;
-  animation: dash 3s ease infinite;
+  stroke-dashoffset: 0;
   stroke-linejoin: round; }
 
 .node:hover ~ .link {
-  -webkit-transition: all 1s 0s;
-  -moz-transition: all 1s 0s;
-  -ms-transition: all 1s 0s;
-  -o-transition: all 1s 0s;
-  transition: all 1s 0s;
+  -webkit-transition: all 3s 0s;
+  -moz-transition: all 3s 0s;
+  -ms-transition: all 3s 0s;
+  -o-transition: all 3s 0s;
+  transition: all 3s 0s;
   stroke: #fff;
-  stroke-dasharray: 1000, 1000;
-  stroke-dashoffset: 1000;
-  animation: dash 3s ease infinite;
   stroke-linejoin: round; }
 
 @keyframes backinout {
@@ -40,9 +37,6 @@
   100% {
     opacity: 1;
     r: 15px; } }
-@keyframes dash {
-  to {
-    stroke-dashoffset: 0; } }
 .canvas {
   position: relative; }
 
@@ -62,18 +56,18 @@
   background-color: #f0f0f0;
   border-radius: 100%;
   cursor: pointer;
-  -webkit-transition: all 0.3s 0s;
-  -moz-transition: all 0.3s 0s;
-  -ms-transition: all 0.3s 0s;
-  -o-transition: all 0.3s 0s;
-  transition: all 0.3s 0s; }
+  -webkit-transition: all 3s 0s;
+  -moz-transition: all 3s 0s;
+  -ms-transition: all 3s 0s;
+  -o-transition: all 3s 0s;
+  transition: all 3s 0s; }
   .canvas-download:hover {
     background-color: dimgray;
-    -webkit-transition: all 0.3s 0s;
-    -moz-transition: all 0.3s 0s;
-    -ms-transition: all 0.3s 0s;
-    -o-transition: all 0.3s 0s;
-    transition: all 0.3s 0s; }
+    -webkit-transition: all 3s 0s;
+    -moz-transition: all 3s 0s;
+    -ms-transition: all 3s 0s;
+    -o-transition: all 3s 0s;
+    transition: all 3s 0s; }
     .canvas-download:hover i {
       color: #ffffff; }
 

@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {MDParser, Node} from '../../../common/markdownparser';
+import jsPDF from '../../../common/jsPDF';
 
+var svg2pdf = require("svg2pdf");
 var d3 = require("d3");
 
 export default class MindMap extends Component {
@@ -16,12 +18,25 @@ export default class MindMap extends Component {
         let dom = this._dom;
         if (dom) {
             // add attributes to make sure browser can open it straightforward
-            dom.getElementsByTagName("svg")[0].setAttribute("xmlns", "http://www.w3.org/2000/svg");
-            dom.getElementsByTagName("svg")[0].setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
-            dom.getElementsByTagName("svg")[0].setAttribute("xml:space", "preserve");
+            let svg = dom.getElementsByTagName("svg")[0];
+            svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+            svg.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
+            svg.setAttribute("xml:space", "preserve");
+
+            // A4 size
+            //var pdf = new jsPDF('l', 'pt', [1487,2105]);
+            //svg2pdf(svg, pdf, {
+            //    xOffset: 0,
+            //    yOffset: 0,
+            //    scale: 1
+            //});
+            //
+            //var uri = pdf.output('datauristring');
+
             let file = document.createElement("a");
             let blob = new Blob([dom.innerHTML], {type: "image/svg+xml"});
-            file.href = URL.createObjectURL(blob);
+            file.href =  URL.createObjectURL(blob);
+            //file.href = uri;
             file.download = fileName;
             document.body.appendChild(file);
             file.click();
@@ -71,7 +86,7 @@ export default class MindMap extends Component {
         })(table).sort(function (a, b) {
             return a.height - b.height
         });
-        let cluster = d3.cluster().size([height*0.7, 400]);
+        let cluster = d3.cluster().size([height * 0.7, 400]);
         cluster(root);
         let node = g.selectAll(".node")
             .data(root.descendants())
@@ -100,13 +115,13 @@ export default class MindMap extends Component {
                 + "C" + (d.parent.y) + "," + d.x
                 + " " + (d.parent.y) + "," + d.parent.x
                 + " " + (d.parent.y) + "," + d.parent.x;
-        }).style("fill", "none").style("stroke", "transparent");
+        }).style("fill", "none").style("stroke-opacity", "transparent");
         let links = g.selectAll(".link").data(root.descendants().slice(1)).enter().append("path").attr("class", "link").attr("d", function (d, i) {
             return "M" + d.y + "," + d.x
                 + "C" + (d.parent.y) + "," + d.x
                 + " " + (d.parent.y) + "," + d.parent.x
                 + " " + (d.parent.y) + "," + d.parent.x;
-        }).style("fill", "none").style("stroke-opacity", "0.4").style("stroke", "#999").style("stroke-opacity", "1.5px").style("stroke-linecap", "round");
+        }).style("fill", "none").style("stroke-opacity", "0.4").style("stroke", "#000").style("stroke", "3px").style("stroke-linecap", "round");
     }
 
     render() {
