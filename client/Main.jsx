@@ -12,8 +12,8 @@ Meteor.startup(()=> {
 
     render(<Router history={history}>
         <Switch>
-            <Route exact path="/" component={Landing}></Route>
-            <Route path="/tnote" component={App}></Route>
+            <Route exact path="/" component={Landing}/>
+            <Route path="/tnote" component={App}/>
         </Switch>
     </Router>, document.getElementById('render-target'));
 });

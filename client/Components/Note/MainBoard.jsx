@@ -21,7 +21,7 @@ export default class MainBoard extends Component {
         this.props.pages.forEach((page, index)=> {
             pages.push(<Page key={index} cueColumn={page.cueColumn} noteContent={page.noteContent}
                              summary={page.summary} title={page.title} onFocus={this.props.onFocus} onPageChange={this.props.onPageChange}
-                             index={index} onBlur={this.props.onBlur} ances={this.props.ances}></Page>);
+                             index={index} onBlur={this.props.onBlur} ances={this.props.ances}/>);
         });
         return pages;
     }
@@ -48,7 +48,7 @@ export default class MainBoard extends Component {
                     <i className="material-icons" onClick={this.props.save}>save</i>
                 </div>
             </div>
-            <Dashboard visible={this.state.dashboardVisible}></Dashboard>
+            <Dashboard visible={this.state.dashboardVisible}/>
             {this.renderPages()}
         </div>);
     }

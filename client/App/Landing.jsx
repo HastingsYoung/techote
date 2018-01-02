@@ -32,14 +32,14 @@ export default class Landing extends Component {
                 </div>
                 <InputBox placeholder="Username" value={this.state.uname} onChange={(evt)=>{
                     this.setState({uname:evt.target.value});
-                }}></InputBox>
+                }}/>
                 <InputBox placeholder="Password" value={this.state.pw} password={true} onChange={(evt)=>{
                     this.setState({pw:evt.target.value});
-                }}></InputBox>
+                }}/>
                 <InputBox placeholder="Captcha" value={this.state.cpa} password={false} onChange={(evt)=>{
                     this.setState({cpa:evt.target.value});
-                }}></InputBox>
-                <canvas id="cnvs"></canvas>
+                }}/>
+                <canvas id="cnvs"/>
                 <div className="login-btns">
                     <div className="login-btn login" onClick={this._onLogin.bind(this)}>
                         Login
